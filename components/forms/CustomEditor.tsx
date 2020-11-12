@@ -151,8 +151,16 @@ class CustomEditor extends React.Component<any> {
     return (
       <div className="form-group">
         <RichTextEditorComponent
-          ref={(richtexteditor) => (this.rteObj = richtexteditor)}
-          change={(event) => this.props.onChange && this?.props?.onChange(event?.value)}
+          ref={(richtexteditor) => {
+            this.rteObj = richtexteditor;
+            if (this.rteObj) {
+              this.rteObj.insertImageSettings.saveFormat = 'Base64';
+            }
+          }}
+          change={(event) => {
+            this.props.onChange && this?.props?.onChange(event?.value);
+            console.log(event?.value);
+          }}
           showCharCount={true}
           actionBegin={this.handleFullScreen.bind(this)}
           actionComplete={this.actionCompleteHandler.bind(this)}

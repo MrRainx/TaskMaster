@@ -42,7 +42,7 @@ const AnotacionFormContainer = ({ onSubmit, onSubmitError = null, titulo, defaul
                     label="Cancelar"
                     className="p-button-danger btn-block"
                     type="button"
-                    onClick={router.goTo('/anotaciones')}
+                    onClick={router.goTo('/')}
                   />
                 </div>
                 <div className="col-md-5 my-2">
